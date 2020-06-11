@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
  * @author Judith
  */
 public class InputParameters {
-    public static String systemName = "", path = "", programmingLanguage = "";
+    public static String systemName = "", pathClone = "", pathSystem = "", programmingLanguage = "";
     public static int lastRevision;
 
     public void setParameters(String sysName){
@@ -18,31 +18,36 @@ public class InputParameters {
             if(sysName.equals("Ctags")){
                 systemName = sysName;
                 lastRevision = 774;
-                path = "C:/Deckard_Clones/Ctags/Repository/version-";
+                pathClone = "E:/ConQat_Clones/Ctags/version-";
+                pathSystem = "E:/Systems_Only/Ctags/Repository/version-";
                 programmingLanguage = "C";
             }
             else if(sysName.equals("Brlcad")){
                 systemName = sysName;
                 lastRevision = 735;
-                path = "C:/Deckard_Clones/Brlcad/Repository/version-";
+                pathClone = "E:/ConQat_Clones/Brlcad/version-";
+                pathSystem = "E:/Systems_Only/Brlcad/Repository/version-";
                 programmingLanguage = "C";
             }
             else if(sysName.equals("Freecol")){
                 systemName = sysName;
                 lastRevision = 1950;
-                path = "C:/Deckard_Clones/Freecol/Repository/version-";
+                pathClone = "E:/ConQat_Clones/Freecol/version-";
+                pathSystem = "E:/Systems_Only/Freecol/Repository/version-";
                 programmingLanguage = "Java";
             }
             else if(sysName.equals("Carol")){
                 systemName = sysName;
                 lastRevision = 1700;
-                path = "C:/Deckard_Clones/Carol/Repository/version-";
+                pathClone = "E:/ConQat_Clones/Carol/version-";
+                pathSystem = "E:/Systems_Only/Carol/Repository/version-";
                 programmingLanguage = "Java";
             }
             else if(sysName.equals("Jabref")){
                 systemName = sysName;
                 lastRevision = 1545;
-                path = "C:/ConQat_Clones/Jabref/version-";
+                pathClone = "E:/ConQat_Clones/Jabref/version-";
+                pathSystem = "E:/Systems_Only/Jabref/Repository/version-";
                 programmingLanguage = "Java";
             }
             else if(sysName.equals("Select")){
@@ -51,7 +56,8 @@ public class InputParameters {
             }
 
             if(flag == 0)
-                System.out.println("This is inside setParameters systemName = " + systemName + " Programming language = " + programmingLanguage + " Path = " + path + " Last revision = " + lastRevision);
+                System.out.println("This is inside setParameters systemName = " + systemName + " Programming language = " + programmingLanguage + " Clone Path = " + pathClone
+                        + " System Path" + pathSystem + " Last revision = " + lastRevision);
 
         }catch(Exception e){
             System.out.println("Error in method setParameters = " + e);

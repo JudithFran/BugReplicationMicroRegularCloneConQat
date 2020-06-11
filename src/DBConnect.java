@@ -28,14 +28,14 @@ public class DBConnect {
     public void connect(){
         try{
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection(connectionString, userID, password);
+                conn = DriverManager.getConnection(connectionString, userID, password);
 
 
 
 
-        }catch(Exception e){
-            System.out.println ("error.method name = connect." + e);
-        }
+            }catch(Exception e){
+                System.out.println ("error.method name = connect." + e);
+            }
     }
 
     public void disconnect(){
