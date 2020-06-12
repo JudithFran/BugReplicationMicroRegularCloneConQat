@@ -1151,10 +1151,10 @@ public class BugReplicationMicroRegularClones {
     }
 
     public CodeFragment[][] fileReadMicro(int rev){
-        CodeFragment[][] cfFile2 = new CodeFragment[1000][1000];
+        CodeFragment[][] cfFile2 = new CodeFragment[5000][5000];
         try {
-            CodeFragment[][] cfFile = new CodeFragment[1000][1000];
-            CodeFragment[][] cfFile1 = new CodeFragment[1000][1000];
+            CodeFragment[][] cfFile = new CodeFragment[5000][5000];
+            CodeFragment[][] cfFile1 = new CodeFragment[5000][5000];
 
 
             File fileConQat = new File(InputParameters.pathClone + rev + "/clones-gapped.xml"); //All Type
