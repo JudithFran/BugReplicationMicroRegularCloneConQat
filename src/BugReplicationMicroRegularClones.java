@@ -612,6 +612,44 @@ public class BugReplicationMicroRegularClones {
         return 0;
     }
 
+    //-------------------------------------- This function implementing RQ3 ---------------------------------------
+
+    public void bugReplicationRQ3(){
+        try{
+
+            // --------------------------Implementing RQ3 for Regular Clones----------------------------
+
+            bugReplicationR();
+
+            System.out.println("Results of RQ3 Regular code clones:");
+            System.out.println("Total Number of Distinct Bugs(revision) of code clones for Regular = " + countRevR);
+            System.out.println("Total Distinct Number of Replicated Bug Revision in Regular code clone = " + countRevRepR);
+            System.out.println("Percentage of Replicated Bugs in Regular code clones = " + (float) countRevRepR/countRevR*100 + "%\n");
+
+            PrintWriter writer = new PrintWriter("Temp_output.txt", "UTF-8");
+
+            writer.println("Results of RQ3 Regular code clones:");
+            writer.println("Total Number of Distinct Bugs(revision) of code clones for Regular = " + countRevR);
+            writer.println("Total Distinct Number of Replicated Bug Revision in Regular code clone = " + countRevRepR);
+            writer.println("Percentage of Replicated Bugs in Regular code clones = " + (float) countRevRepR/countRevR*100 + "%\n");
+
+            writer.close();
+
+
+            bugReplicationM();
+
+            System.out.println("Results of RQ3 Micro code clones:");
+            System.out.println("Total Number of Distinct Bugs(revision) of code clones for Micro = " + countRevM);
+            System.out.println("Total Distinct Number of Replicated Bug Revision in Micro code clone = " + countRevRepM);
+            System.out.println("Percentage of Replicated Bugs in Micro code clones = " + (float) countRevRepM/countRevM*100 + "%\n");
+
+
+        }catch(Exception e){
+            System.out.println("Error in bugReplicationRQ3: " + e);
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<CodeFragment> bugReplicationR(){
         ArrayList<CodeFragment> bugRep = new ArrayList<>();
         try{

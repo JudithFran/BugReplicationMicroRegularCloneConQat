@@ -1,2 +1,5 @@
-At i = 62 countRepR = 63
-At i = 62 nclonesR = 67
+Results of RQ3 Regular code clones:
+Total Number of Distinct Bugs(revision) of code clones for Regular = 12
+Total Distinct Number of Replicated Bug Revision in Regular code clone = 12
+Percentage of Replicated Bugs in Regular code clones = 100.0%
+
