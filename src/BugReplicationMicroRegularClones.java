@@ -650,6 +650,21 @@ public class BugReplicationMicroRegularClones {
         }
     }
 
+    //-------------------------------------- This function implementing RQ4 ---------------------------------------
+
+    public void bugReplicationRQ4(){
+        try{
+
+            // --------------------------Implementing RQ4 for Regular Clones----------------------------
+
+            RQ4 = 1;
+
+        }catch(Exception e){
+            System.out.println("Error in bugReplicationRQ4: " + e);
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<CodeFragment> bugReplicationR(){
         ArrayList<CodeFragment> bugRep = new ArrayList<>();
         try{
