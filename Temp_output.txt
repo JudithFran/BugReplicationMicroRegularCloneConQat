@@ -1,7 +1,7 @@
 
-Total distinct number of replicated bugs in regular code clone = 6
+Total distinct number of replicated bugs in regular code clone = 56
 
-Total distinct number of replicated bug revision in regular code clone = 2
+Total distinct number of replicated bug revision in regular code clone = 7
 
-Distinct number of replicated bugs in regular clones per revision = 3.0
+Distinct number of replicated bugs in regular clones per revision = 8.0
 
