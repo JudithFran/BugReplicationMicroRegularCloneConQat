@@ -508,8 +508,8 @@ public class BugReplicationMicroRegularClones {
                     //if(bugRepR.get(i).revision == bugRepR.get(j).revision && bugRepR.get(i).filepath.equals(bugRepR.get(j).filepath)){
                     if(bugRepM.get(i).revision == bugRepM.get(j).revision){
                         System.out.println("Revision number (M) = " + bugRepM.get(i).revision);
-                        classID1M = getClassID(bugRepM.get(i));
-                        classID2M = getClassID(bugRepM.get(j));
+                        classID1M = getClassIDMicro(bugRepM.get(i));
+                        classID2M = getClassIDMicro(bugRepM.get(j));
 
                         if(classID1M == classID2M){
                             countRepM++;
@@ -821,7 +821,7 @@ public class BugReplicationMicroRegularClones {
                     cloneFragmentPairINR[1] = getInstanceInNextRevision(cloneFragmentPair[x][1]);
 
                     if(cloneFragmentPairINR[0] != null && cloneFragmentPairINR[1] != null){
-                        if(isClonePairBinary(cloneFragmentPairINR[0], cloneFragmentPairINR[1]) == 1){
+                        if(isClonePairBinaryMicro(cloneFragmentPairINR[0], cloneFragmentPairINR[1]) == 1){
                             numReplicatedBugFixCommits++;
                             System.out.println("////////////////////////////////////////////////////////////////////////Replicated Bug Fixing Change Found (Micro)////////////////////////////////////////////////////////////////////////");
                             System.out.println("numReplicatedBugFixCommits for Micro Clones = " + numReplicatedBugFixCommits);
@@ -1128,10 +1128,10 @@ public class BugReplicationMicroRegularClones {
                     if(cfXmlFileMatch[i].revision == cfXmlFileMatch[j].revision){
                         //System.out.println("Revision = " + cfXmlFileMatch[i].revision);
 
-                        classID1 = getClassID(cfXmlFileMatch[i]);
+                        classID1 = getClassIDMicro(cfXmlFileMatch[i]);
                         //System.out.println("classID1 in Micro = " + classID1);
 
-                        classID2 = getClassID(cfXmlFileMatch[j]);
+                        classID2 = getClassIDMicro(cfXmlFileMatch[j]);
                         //System.out.println("classID2 in Micro = " + classID2 + "\n");
 
                         if(classID1 == classID2){
@@ -1565,6 +1565,47 @@ public class BugReplicationMicroRegularClones {
 
     }
 
+    public int getClassIDMicro(CodeFragment cf){
+
+        // In this method I use cfFile (a two dimensional array) to store each clone file (ConQat clone output file). In first dimension it will store the class number (classID)
+        // and in second dimension it will store each clone fragments.
+        CodeFragment[][] cfFile = new CodeFragment[1000][1000];
+        int classID;
+        try{
+            ArrayList<CodeFragment> cfFileMicro = new ArrayList<>();
+
+            File file = new File(InputParameters.pathClone + cf.revision + "/clones-gapped.xml"); //All Type
+
+            if(file.exists()) {
+
+                BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file))); // All Type
+
+                cfFile = fileReadMicro(cf.revision);
+
+                int flag = 0;
+                for (int i = 0; i < cfFile.length; i++)
+                    for (int j = 0; j < cfFile.length; j++)
+                        if (cfFile[i][j] != null){
+                            if (cf.filepath.equals(cfFile[i][j].filepath) && cf.startline == cfFile[i][j].startline && cf.endline == cfFile[i][j].endline) {
+                                flag = 1;
+                                classID = i;
+                                return classID;
+                            }
+                            if (flag == 1)
+                                break;
+                        }
+                        else
+                            break;
+            }
+
+        } catch(Exception e){
+            System.out.println("Error in method getClassIDMicro()." + e);
+            e.printStackTrace();
+        }
+        return 0;
+
+    }
+
     public int isClonePairBinary(CodeFragment cf1, CodeFragment cf2){
         int pair = 0;
         try{
@@ -1579,6 +1620,26 @@ public class BugReplicationMicroRegularClones {
             }
         } catch(Exception e){
             System.out.println("Error in method isClonePairBinary()." + e);
+            e.printStackTrace();
+        }
+        return pair;
+
+    }
+
+    public int isClonePairBinaryMicro(CodeFragment cf1, CodeFragment cf2){
+        int pair = 0;
+        try{
+            int classID1 = 0, classID2 = 0;
+
+            classID1 = getClassIDMicro(cf1);
+
+            classID2 = getClassIDMicro(cf2);
+
+            if(classID1 == classID2){
+                pair = 1;
+            }
+        } catch(Exception e){
+            System.out.println("Error in method isClonePairBinaryMicro()." + e);
             e.printStackTrace();
         }
         return pair;
