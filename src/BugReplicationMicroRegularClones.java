@@ -39,6 +39,8 @@ class CodeFragment {
             }
         } catch (Exception e) {
             System.out.println("error.getFragment." + e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
     }
@@ -69,6 +71,8 @@ class CodeFragment {
             //System.out.println("---------------------------------------------------");
         } catch (Exception e) {
             System.out.println("error.showFragment." + e);
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 }
@@ -76,7 +80,7 @@ class CodeFragment {
 
 public class BugReplicationMicroRegularClones {
 
-    CodeFragment[][] cfp = new CodeFragment[100000][2];
+    CodeFragment[][] cfp = new CodeFragment[50000][2]; // Previously 100000
 
     DBConnect db = new DBConnect();
     CompareChanges cc = new CompareChanges();
@@ -127,6 +131,8 @@ public class BugReplicationMicroRegularClones {
 
         } catch (Exception e) {
             System.out.println("Error in getBugFixCommits = " + e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
         return bugFixCommits;
@@ -177,6 +183,8 @@ public class BugReplicationMicroRegularClones {
 
         } catch (Exception e) {
             System.out.println("Error in getBugFixCommits = " + e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
         return bugFixCommits;
@@ -220,6 +228,8 @@ public class BugReplicationMicroRegularClones {
 
         } catch (Exception e) {
             System.out.println("Error in getBugFixCommitsMockus = " + e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
         return bugFixCommits;
@@ -265,6 +275,8 @@ public class BugReplicationMicroRegularClones {
 
         } catch (Exception e) {
             System.out.println("Error in getBugFixCommitsLamkanfi = " + e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
         return bugFixCommits;
@@ -375,6 +387,8 @@ public class BugReplicationMicroRegularClones {
 
         } catch (Exception e) {
             System.out.println("Error in getChangedBugFixCommits = " + e);
+            e.printStackTrace();
+            System.exit(0);
         }
         return changedBugFixCommits2DNew;
     }
@@ -446,6 +460,7 @@ public class BugReplicationMicroRegularClones {
         } catch(Exception e){
             System.out.println("error in BugReplication = " + e);
             e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -532,6 +547,7 @@ public class BugReplicationMicroRegularClones {
         }catch(Exception e){
             System.out.println("Error in bugReplicationRQ2: " + e);
             e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -571,6 +587,7 @@ public class BugReplicationMicroRegularClones {
         }catch(Exception e){
             System.out.println("Error in getCloneNumber: " + e);
             e.printStackTrace();
+            System.exit(0);
         }
         return 0;
     }
@@ -608,6 +625,7 @@ public class BugReplicationMicroRegularClones {
         }catch(Exception e){
             System.out.println("Error in getCloneNumberMicro: " + e);
             e.printStackTrace();
+            System.exit(0);
         }
         return 0;
     }
@@ -647,6 +665,7 @@ public class BugReplicationMicroRegularClones {
         }catch(Exception e){
             System.out.println("Error in bugReplicationRQ3: " + e);
             e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -662,6 +681,7 @@ public class BugReplicationMicroRegularClones {
         }catch(Exception e){
             System.out.println("Error in bugReplicationRQ4: " + e);
             e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -778,6 +798,7 @@ public class BugReplicationMicroRegularClones {
         }catch(Exception e){
             System.out.println("error in BugReplicationR = " + e);
             e.printStackTrace();
+            System.exit(0);
         }
         return bugRep;
     }
@@ -785,7 +806,7 @@ public class BugReplicationMicroRegularClones {
     public ArrayList<CodeFragment> bugReplicationM(){
         ArrayList<CodeFragment> bugRep = new ArrayList<>();
         try{
-            CodeFragment[][] cloneFragmentPair = new CodeFragment[100000][2];
+            CodeFragment[][] cloneFragmentPair = new CodeFragment[50000][2]; // Previously 100000
 
             cloneFragmentPair = isClonePairMicro();
 
@@ -881,6 +902,7 @@ public class BugReplicationMicroRegularClones {
         }catch(Exception e){
             System.out.println("error in BugReplicationM = " + e);
             e.printStackTrace();
+            System.exit(0);
         }
         return bugRep;
     }
@@ -1019,19 +1041,20 @@ public class BugReplicationMicroRegularClones {
         }catch (Exception e) {
             System.out.println("Error in method isClonePair = " + e);
             e.printStackTrace();
+            System.exit(0);
         }
         //return cfp;
     }
 
     public CodeFragment[][] isClonePairMicro(){
-        CodeFragment[][] cfpMicro = new CodeFragment[100000][2];
+        CodeFragment[][] cfpMicro = new CodeFragment[50000][2]; // Previously 100000
         try{
             CodeFragment[][] changedBugFixCommits = new CodeFragment[500][500]; // was 10000 before optimization
             changedBugFixCommits = getChangedBugFixCommits();
 
             CodeFragment[][] cfXmlFileMicro = new CodeFragment[10000][10000]; // was 10000 before optimization
 
-            CodeFragment[] cfXmlFileMatch = new CodeFragment[1000000];    // was 50000 before optimization
+            CodeFragment[] cfXmlFileMatch = new CodeFragment[50000]; // Previously 1000000    // was 50000 before optimization
 
             //CodeFragment[][] cfpReg = new CodeFragment[10000][2];   // was 50000 before optimization
 
@@ -1205,6 +1228,7 @@ public class BugReplicationMicroRegularClones {
         }catch (Exception e) {
             System.out.println("Error in method isClonePairMicro = " + e);
             e.printStackTrace();
+            System.exit(0);
         }
         return cfpMicro;
     }
@@ -1361,6 +1385,7 @@ public class BugReplicationMicroRegularClones {
         } catch(Exception e){
             System.out.println("Error in method fileRead()." + e);
             e.printStackTrace();
+            System.exit(0);
         }
         return cfFile2;
 
@@ -1519,6 +1544,7 @@ public class BugReplicationMicroRegularClones {
         } catch(Exception e){
             System.out.println("Error in method fileReadMicro()." + e);
             e.printStackTrace();
+            System.exit(0);
         }
         return cfFile2;
 
@@ -1531,7 +1557,7 @@ public class BugReplicationMicroRegularClones {
         CodeFragment[][] cfFile = new CodeFragment[1000][1000];
         int classID;
         try{
-            ArrayList<CodeFragment> cfFileMicro = new ArrayList<>();
+            //ArrayList<CodeFragment> cfFileMicro = new ArrayList<>();
 
             File file = new File(InputParameters.pathClone + cf.revision + "/clones-gapped.xml"); //All Type
 
@@ -1560,6 +1586,7 @@ public class BugReplicationMicroRegularClones {
         } catch(Exception e){
             System.out.println("Error in method getClassID()." + e);
             e.printStackTrace();
+            System.exit(0);
         }
         return 0;
 
@@ -1572,7 +1599,7 @@ public class BugReplicationMicroRegularClones {
         CodeFragment[][] cfFile = new CodeFragment[1000][1000];
         int classID;
         try{
-            ArrayList<CodeFragment> cfFileMicro = new ArrayList<>();
+            //ArrayList<CodeFragment> cfFileMicro = new ArrayList<>();
 
             File file = new File(InputParameters.pathClone + cf.revision + "/clones-gapped.xml"); //All Type
 
@@ -1601,6 +1628,7 @@ public class BugReplicationMicroRegularClones {
         } catch(Exception e){
             System.out.println("Error in method getClassIDMicro()." + e);
             e.printStackTrace();
+            System.exit(0);
         }
         return 0;
 
@@ -1621,6 +1649,7 @@ public class BugReplicationMicroRegularClones {
         } catch(Exception e){
             System.out.println("Error in method isClonePairBinary()." + e);
             e.printStackTrace();
+            System.exit(0);
         }
         return pair;
 
@@ -1641,6 +1670,7 @@ public class BugReplicationMicroRegularClones {
         } catch(Exception e){
             System.out.println("Error in method isClonePairBinaryMicro()." + e);
             e.printStackTrace();
+            System.exit(0);
         }
         return pair;
 
