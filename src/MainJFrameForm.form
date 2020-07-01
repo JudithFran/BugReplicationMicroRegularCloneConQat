@@ -3,12 +3,12 @@
   <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="896" height="470"/>
+      <xy x="20" y="20" width="896" height="503"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="bd4c2" binding="panelMain" layout-manager="GridLayoutManager" row-count="18" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="bd4c2" binding="panelMain" layout-manager="GridLayoutManager" row-count="19" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -108,6 +108,15 @@
             </constraints>
             <properties>
               <text value="Percentage of Replicated Bugs"/>
+            </properties>
+          </component>
+          <component id="ed432" class="javax.swing.JButton" binding="percentageOfLineCoverageButton" default-binding="true">
+            <constraints>
+              <grid row="18" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <horizontalTextPosition value="11"/>
+              <text value="Percentage of Line Coverage"/>
             </properties>
           </component>
         </children>
