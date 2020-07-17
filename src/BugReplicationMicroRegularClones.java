@@ -761,12 +761,14 @@ public class BugReplicationMicroRegularClones {
     public int countLineNumber(int rev){
         int lineNumber = 0;
         try {
-            CodeFragment[] cfFile = new CodeFragment[5000];
-            CodeFragment[] cfFile1 = new CodeFragment[5000];
+            CodeFragment[] cfFile = new CodeFragment[10000];
+            CodeFragment[] cfFile1 = new CodeFragment[10000];
 
             File fileConQat = new File(InputParameters.pathClone + rev + "/clones-gapped.xml"); //All Type
 
-            if (fileConQat.exists()) {
+            //if (fileConQat.exists() && rev <= 100) { // Tuning for feasible experiment for Jabref
+            //if (fileConQat.exists() && rev <= 50) { // Tuning for feasible experiment for Carol
+            if (fileConQat.exists() && rev <= 1025) { // Tuning for feasible experiment for Freecol
 
                 BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileConQat))); // All Type
 
@@ -873,12 +875,14 @@ public class BugReplicationMicroRegularClones {
     public int countLineNumberMicro(int rev){
         int lineNumber = 0;
         try {
-            CodeFragment[] cfFile = new CodeFragment[5000];
-            CodeFragment[] cfFile1 = new CodeFragment[5000];
+            CodeFragment[] cfFile = new CodeFragment[50000];
+            CodeFragment[] cfFile1 = new CodeFragment[50000];
 
             File fileConQat = new File(InputParameters.pathClone + rev + "/clones-gapped.xml"); //All Type
 
-            if (fileConQat.exists()) {
+            //if (fileConQat.exists() && rev <= 100) { // Tuning for feasible experiment for Jabref
+            //if (fileConQat.exists() && rev <= 50) { // Tuning for feasible experiment for Carol
+            if (fileConQat.exists() && rev <= 1025) { // Tuning for feasible experiment for Freecol
 
                 BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileConQat))); // All Type
 
@@ -1538,7 +1542,9 @@ public class BugReplicationMicroRegularClones {
 
             File fileConQat = new File(InputParameters.pathClone + rev + "/clones-gapped.xml"); //All Type
 
-            if (fileConQat.exists()) {
+            //if (fileConQat.exists() && rev <= 100) { // Tuning for feasible experiment for Jabref
+            //if (fileConQat.exists() && rev <= 50) { // Tuning for feasible experiment for Carol
+            if (fileConQat.exists() && rev <= 1025) { // Tuning for feasible experiment for Freecol
 
                 BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileConQat))); // All Type
 
@@ -1697,7 +1703,9 @@ public class BugReplicationMicroRegularClones {
 
             File fileConQat = new File(InputParameters.pathClone + rev + "/clones-gapped.xml"); //All Type
 
-            if (fileConQat.exists()) {
+            //if (fileConQat.exists() && rev <= 100) { // Tuning for feasible experiment for Jabref
+            //if (fileConQat.exists() && rev <= 50) { // Tuning for feasible experiment for Carol
+            if (fileConQat.exists() && rev <= 1025) { // Tuning for feasible experiment for Freecol
 
                 BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileConQat))); // All Type
 
